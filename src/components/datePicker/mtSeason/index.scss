@@ -1,0 +1,126 @@
+@use '../_shared.scss' as shared;
+
+@include shared.picker-base('mt-season-picker');
+@include shared.range-panels('mt-season-picker');
+@include shared.nav-button('mt-season-picker', $with-disabled: true, $with-disabled-hover: true);
+@include shared.popover-padding('mt-season-picker');
+
+.mt-season-picker {
+  &__range-reference {
+    .mt-season-picker__range-separator {
+      font-size: 14px;
+      color: var(--theme-text-secondary);
+    }
+  }
+
+  &__panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding-bottom: 6px;
+    margin-bottom: 14px;
+    border-bottom: 1px solid var(--theme-border-color);
+  }
+
+  &__panel-title {
+    flex: 1;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--theme-text-primary);
+  }
+
+  &__panel-title-btn {
+    flex: 1;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--theme-text-primary);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: var(--theme-primary);
+    }
+  }
+
+  &__panel-body {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+  }
+
+  &__season {
+    height: 32px;
+    border: none;
+    border-radius: 2px;
+    background: transparent;
+    color: var(--theme-text-primary);
+    cursor: pointer;
+    transition:
+      background-color 0.2s ease,
+      color 0.2s ease;
+
+    &:hover:not(:disabled) {
+      color: var(--theme-primary);
+    }
+
+    &.is-selected {
+      background: var(--theme-primary);
+      color: var(--theme-base);
+      &:hover {
+        background: var(--theme-primary);
+        color: var(--theme-base);
+      }
+    }
+
+    &.is-in-range:not(.is-selected) {
+      background: var(--el-color-primary-light-9);
+      color: var(--el-color-primary);
+    }
+
+    &:disabled {
+      color: var(--theme-text-placeholder);
+      cursor: not-allowed;
+    }
+  }
+
+  &__year-panel-body {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+  }
+
+  &__year-btn {
+    height: 32px;
+    border: none;
+    border-radius: 2px;
+    background: transparent;
+    color: var(--theme-text-primary);
+    cursor: pointer;
+    transition:
+      background-color 0.2s ease,
+      color 0.2s ease;
+
+    &:hover:not(:disabled) {
+      color: var(--theme-primary);
+    }
+
+    &.is-selected {
+      background: var(--theme-primary);
+      color: var(--theme-base);
+      &:hover {
+        background: var(--theme-primary);
+        color: var(--theme-base);
+      }
+    }
+
+    &:disabled {
+      color: var(--theme-text-placeholder);
+      cursor: not-allowed;
+    }
+  }
+}

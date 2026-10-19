@@ -1,0 +1,187 @@
+.mt-chart-download {
+  width: 100%;
+  height: 500px;
+  display: flex;
+  position: relative;
+
+  > .chart-config {
+    width: 320px;
+    min-width: 320px;
+    height: 100%;
+    background-color: var(--mt-chart-download-config-bg-color);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+
+    .el-collapse {
+      flex: 1;
+      height: 0;
+      border: none;
+      overflow: auto;
+
+      .el-collapse-item {
+        .el-collapse-item__header {
+          height: 40px;
+          color: var(--mt-chart-download-collapse-head-color);;
+          border: none;
+          font-size: 16px;
+          font-weight: bold;
+          padding-left: 15px;
+          background-color: var(--mt-chart-download-collapse-head-bg-color);
+
+          &.is-active {
+            color: var(--mt-chart-download-collapse-head-active-color);
+          }
+        }
+
+        .el-collapse-item__wrap {
+
+          .el-collapse-item__content {
+            color: var(--mt-chart-download-content-color);
+            padding: 10px;
+            background-color: var(--mt-chart-download-content-bg-color);
+          }
+        }
+      }
+    }
+
+    .el-form {
+      .el-form-item {
+        margin-bottom: 10px;
+
+        &:not(.align-item-start) {
+          align-items: center;
+        }
+
+        .el-form-item__label {
+          width: 80px;
+          height: fit-content;
+          display: flex;
+          justify-content: center;
+          min-height: 22px;
+          text-align: center;
+          line-height: 22px;
+          color: var(--mt-chart-download-form-color);
+          font-size: 12px;
+          border-radius: 2px;
+          word-break: break-word;
+          border: 1px solid;
+          background: var(--mt-chart-download-form-bg-color);
+        }
+
+        &.no-border {
+          .el-form-item__label {
+            border: none;
+          }
+        }
+
+        .el-form-item__content {
+          line-height: 28px;
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          gap: 5px;
+          padding: 0 0 0 10px;
+
+          &:before,
+          &:after {
+            display: none;
+          }
+
+          .el-input,
+          .el-input-number {
+            width: 140px;
+          }
+
+          > .el-select {
+            flex: 1;
+            max-width: 60px;
+
+            &.full-width {
+              width: 140px;
+              max-width: 140px;
+            }
+          }
+
+          .el-radio-group {
+            display: flex;
+            align-items: center;
+            column-gap: 10px;
+
+            .el-radio {
+              margin-right: 0;
+            }
+          }
+
+          .el-color-picker__trigger {
+            border: none;
+          }
+        }
+      }
+
+      .el-form-item__content {
+        .block {
+          width: 180px;
+          display: flex;
+          align-items: center;
+          column-gap: 10px;
+
+          > .split-number.el-input-number {
+            width: 88px;
+          }
+
+          > .el-select {
+            width: 120px;
+          }
+        }
+      }
+
+      &.graph-form {
+        .el-form-item__content {
+          .el-select {
+            &.label-font-size-selection {
+              width: 60px;
+            }
+          }
+        }
+        .legend-list-name{
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          margin-bottom: 10px;
+          .legend-block{
+            display: flex;
+            align-items: center;
+            > label{
+              white-space: nowrap;
+            }
+          }
+        }
+      }
+    }
+
+    .download-box {
+      width: 100%;
+      padding: 20px 30px;
+      background: var(--mt-chart-download-bg-color);
+      box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
+
+      .el-button {
+        width: 100%;
+      }
+    }
+  }
+
+  > .chart-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--mt-chart-download-chart-container-bg-color);
+
+    .chart-image {
+      width: 700px;
+      height: 400px;
+    }
+  }
+}

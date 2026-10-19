@@ -1,0 +1,232 @@
+.mt-table {
+  --mt-icon-size: 18px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  background: inherit;
+
+  &,
+  & * {
+    box-sizing: border-box;
+  }
+
+  .table-title {
+    width: 100%;
+    font-weight: 700;
+    font-size: 18px;
+    color: #333333;
+    position: relative;
+    margin-bottom: 10px;
+
+    > .table-title-item {
+      width: 100%;
+      line-height: 20px;
+      text-align: center;
+    }
+
+    ul.toolbar {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      width: fit-content;
+      height: 100%;
+
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translate(0, -50%);
+
+      display: flex;
+      align-items: center;
+      column-gap: 10px;
+
+      > li {
+        display: flex;
+        align-items: center;
+        &.active {
+          color: var(--mt-icon-active-color, #00c3ea);
+        }
+
+        > svg {
+          width: var(--mt-icon-size);
+          height: var(--mt-icon-size);
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  .table-instance {
+    flex: 1;
+    width: 100%;
+    position: relative;
+    overflow: auto;
+    flex-direction: column;
+    gap: 10px;
+
+    // ::-webkit-scrollbar的全局基础样式必须与此一致, 否则样式异常
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+      width: 6px;
+      -webkit-border-radius: 2em;
+      -moz-border-radius: 2em;
+      border-radius: 2em;
+      background: none;
+    }
+
+    ::-webkit-scrollbar-track:hover {
+      background: none;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: rgba(0, 117, 255, 0.2);
+      background-clip: padding-box;
+      min-height: 28px;
+      -webkit-border-radius: 2em;
+      -moz-border-radius: 2em;
+      border-radius: 2em;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background-color: var(--el-color-primary, #409eff);
+    }
+
+    .handsontable {
+      tr.current-row {
+        color: #fff;
+        background-color: var(--el-color-primary, #409eff);
+
+        th,
+        td {
+          color: #fff;
+          background: transparent;
+        }
+      }
+      th {
+        border-color: #bcd4f4;
+        background-color: #e8f1ff;
+        vertical-align: middle;
+      }
+
+      td {
+        border-color: #bcd4f4;
+        background-color: transparent;
+      }
+
+      th {
+        --btnSize: 16px;
+        button.changeType {
+          width: var(--btnSize);
+          height: var(--btnSize);
+          padding: 3px 2px;
+          border: 1px solid transparent;
+          border-radius: 100%;
+
+          &:hover {
+            color: #0075ff;
+            border: 1px solid var(--el-color-primary, #409eff);
+          }
+
+          &::before {
+            content: '▼ ';
+            zoom: 0.9;
+          }
+        }
+
+        &.htFiltersActive button.changeType {
+          color: #0075ff;
+          border: 1px solid var(--el-color-primary, #409eff);
+          background: #fff;
+        }
+
+        &:has(button.changeType) {
+          .colHeader {
+            margin-left: calc(var(--btnSize) + 4px);
+          }
+        }
+        .colHeader {
+          font-weight: bold;
+        }
+
+        &.mt-th-wrap {
+          .colHeader {
+            display: block;
+            white-space: normal;
+            overflow-wrap: anywhere;
+            word-break: break-word;
+            line-height: 16px;
+          }
+        }
+      }
+    }
+
+    .no-data-container {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #909399;
+      font-size: 14px;
+      border: 1px solid #bcd4f4;
+      pointer-events: none;
+    }
+  }
+
+  .pagination-box {
+    margin-top: 10px;
+    .table-pagination {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      align-items: center;
+      height: 42px;
+      .page-des {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        span {
+          font-size: 14px;
+          color: #676767;
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+}
+
+.mt-table:not(.editOutline) {
+  .htBorders {
+    display: none;
+  }
+  .handsontable td.area,
+  .handsontable td.area-1,
+  .handsontable td.area-2,
+  .handsontable td.area-3,
+  .handsontable td.area-4,
+  .handsontable td.area-5,
+  .handsontable td.area-6,
+  .handsontable td.area-7 {
+    position: unset !important;
+  }
+}
+.handsontable th.afterHiddenRow::after {
+  content: ''!important;
+}
+.handsontable th.beforeHiddenRow::before {
+  content: ''!important;
+}
+.handsontable th.afterHiddenRow::after {
+  content: ''!important;
+}
+.handsontable th.beforeHiddenRow::before {
+  content: '' !important;
+}

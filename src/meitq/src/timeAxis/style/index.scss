@@ -1,0 +1,208 @@
+.mt-axis {
+  width: 100%;
+  height: 100%;
+  min-width: 600px;
+  display: flex;
+  align-items: center;
+  column-gap: 5px;
+  padding: 0 10px;
+  user-select: none;
+  position: relative;
+
+  .axis-virtual {
+    flex: 1;
+    width: 100%;
+    position: absolute;
+    display: flex;
+  }
+
+  .axis-block {
+    flex: 1;
+    width: 0;
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+
+    .el-tabs {
+      --el-tabs-header-height: 30px;
+
+      .el-tabs__header {
+        margin-bottom: 0;
+
+        .el-tabs__nav-wrap:not(.is-scrollable) {
+          padding: 0 20px;
+        }
+
+        .el-tabs__nav-next,
+        .el-tabs__nav-prev {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: var(--el-tabs-header-height);
+          line-height: var(--el-tabs-header-height);
+          background: #168be7;
+
+          &.is-disabled {
+            cursor: not-allowed;
+            background-color: #ddd;
+          }
+
+          > .el-icon {
+            display: none;
+          }
+        }
+
+        .el-tabs__nav-prev {
+          clip-path: polygon(80% 15%, 80% 85%, 20% 50%);
+        }
+
+        .el-tabs__nav-next {
+          clip-path: polygon(20% 15%, 20% 85%, 80% 50%);
+        }
+      }
+
+      &.el-tabs--card > .el-tabs__header {
+        border-bottom: none;
+
+        .el-tabs__item {
+          --el-transition-duration: 0;
+          border-color: var(--el-border-color-light);
+          padding: 0 10px !important;
+          min-width: 80px;
+
+          &.is-active {
+            color: #fff;
+            background-color: #168be7;
+          }
+        }
+      }
+    }
+  }
+
+  .axis-slider {
+    flex: 1;
+    width: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    .axis-slider-wrapper {
+      width: 100%;
+      height: 40px;
+      position: absolute;
+      user-select: none;
+      .axis-slider-progress {
+        width: 100%;
+        position: absolute;
+        z-index: 200;
+        cursor: pointer;
+        //transition: all 0.1s;
+        .axis-slider-button {
+          position: absolute;
+          border-radius: 50%;
+          z-index: 202;
+          top: 0;
+          left: 0;
+          transform: translateX(-50%);
+        }
+        .axis-slider-bar {
+          width: 100%;
+          position: absolute;
+          z-index: 201;
+          cursor: pointer;
+          background: #008bff;
+        }
+      }
+      .axis-slider-drag {
+        width: 100%;
+        height: 30px;
+        position: absolute;
+        top: 8px;
+        .axis-slider-tick {
+          width: 100%;
+          height: fit-content;
+          position: absolute;
+          //transition: all 0.1s;
+          .tick {
+            position: absolute;
+          }
+        }
+        .axis-slider-marks {
+          width: 100%;
+          height: fit-content;
+          position: absolute;
+          //transition: all 0.1s;
+          top: 16px;
+          .mark {
+            position: absolute;
+            white-space: nowrap;
+            transform: translateX(-50%);
+          }
+        }
+      }
+    }
+  }
+
+  .auto-height {
+    justify-content: center;
+    height: 100%;
+    padding: 10px 0;
+
+    .el-tabs {
+      flex: 1;
+      .el-tabs__header {
+        margin-bottom: 0;
+        height: 100%;
+        .el-tabs__nav-wrap {
+          height: 100%;
+          .el-tabs__nav-scroll {
+            height: 100%;
+            .el-tabs__nav {
+              height: 100%;
+            }
+          }
+        }
+
+        .el-tabs__nav-prev {
+          height: 100%;
+        }
+
+        .el-tabs__nav-next {
+          height: 100%;
+        }
+      }
+      &.el-tabs--card > .el-tabs__header {
+        border-bottom: none;
+
+        .el-tabs__item {
+          height: 100%;
+        }
+      }
+    }
+  }
+
+  .center-no-date {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+  }
+
+  .axis-play-control {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .control-item {
+      width: 60px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}

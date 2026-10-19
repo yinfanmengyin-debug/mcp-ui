@@ -1,0 +1,131 @@
+.meitq-area-selector {
+  .el-tabs {
+    //.el-tabs__nav-wrap.is-scrollable {
+    //  padding: 0 !important;
+    //}
+    .el-tabs__header {
+      margin-bottom: 6px;
+    }
+    .el-tabs__nav {
+      height: fit-content;
+    }
+    .el-tabs__nav-wrap::after {
+      display: none;
+    }
+    .el-tabs__nav-next,
+    .el-tabs__nav-prev {
+      color: var(--theme-text-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      //display: none;
+    }
+    .el-tabs__item {
+      height: fit-content !important;
+      padding: 0 !important;
+      color: var(--theme-text-primary);
+      font-family: 'Microsoft YaHei', serif;
+      font-size: 16px;
+      margin-right: 8px;
+      &:last-child {
+        margin-right: 0;
+      }
+      &.is-active {
+        color: var(--theme-primary);
+      }
+    }
+    .el-tabs__content {
+      .el-check-button {
+        gap: 4px !important;
+      }
+    }
+    .el-collapse {
+      --el-collapse-border-color: transparent;
+      --el-collapse-header-bg-color: transparent;
+      --el-collapse-content-bg-color: transparent;
+      --el-collapse-header-text-color: var(--el-color-primary);
+
+      &.administrative-division {
+        margin-top: 4px;
+        .el-collapse-item__header {
+          height: 18px;
+          line-height: 18px;
+          text-decoration: underline;
+
+          .el-icon {
+            display: none;
+          }
+        }
+
+        .el-collapse-item__wrap {
+          .el-collapse-item__content {
+            padding-bottom: 0;
+
+            .tip {
+              width: 100%;
+              display: flex;
+              align-items: center;
+              column-gap: 5px;
+
+              &:before,
+              &:after {
+                content: '';
+                flex: 1;
+                height: 0;
+                border-top: 1px dashed var(--theme-border-color);
+              }
+
+              span {
+                display: inline-block;
+                position: relative;
+                color: var(--theme-text-primary);
+                font-size: 12px;
+              }
+            }
+            .el-checkbox-group {
+              display: grid;
+              grid-template-columns: repeat(3, 1fr);
+              gap: 4px;
+              .el-checkbox {
+                margin-right: 0;
+              }
+            }
+          }
+        }
+      }
+
+      &.geographical-division {
+        --el-collapse-header-height: 30px;
+        margin-top: -5px;
+
+        .el-collapse-item {
+          .el-collapse-item__header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            column-gap: 20px;
+
+            &:before,
+            &:after {
+              content: '';
+              flex: 1;
+              height: 0;
+              border: 1px dashed #999999;
+            }
+
+            .el-collapse-item__arrow {
+              display: none;
+            }
+          }
+
+          .el-collapse-item__wrap {
+            .el-collapse-item__content {
+              padding-bottom: 10px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

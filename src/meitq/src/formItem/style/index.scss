@@ -1,0 +1,15 @@
+.mt-form-item.el-form-item {
+  margin-bottom: 5px;
+
+  .el-form-item__label {
+    font-size: 16px;
+  }
+
+  &.label-bold .el-form-item__label {
+    font-weight: bold;
+  }
+
+  &.no-flex {
+    display: block;
+  }
+}

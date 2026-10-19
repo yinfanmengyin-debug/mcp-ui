@@ -1,0 +1,54 @@
+.mt-add-or-edit-color-bar {
+
+  .mt-add-or-edit-color-bar-wrapper {
+    display: flex;
+    height: 600px;
+    column-gap: 20px;
+
+    > div {
+      height: 100%;
+    }
+
+    > .color-bar-list-container {
+      width: 350px;
+      display: flex;
+      flex-direction: column;
+      row-gap: 10px;
+
+      > .list-title  {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .name{
+          color: var(--el-text-color-regular);
+          font-size: 18px;
+          font-weight: bold;
+
+          display: flex;
+          align-items: center;
+        }
+
+        .add-text {
+          color: var(--el-color-primary);
+          cursor: pointer;
+          font-size: 16px;
+          border-bottom: 1px solid var(--el-color-primary);
+        }
+      }
+    }
+
+    > .color-bar-editor-container {
+      flex: 1;
+      overflow: auto;
+
+      border-left: 1px dashed #999999;
+
+      padding: 0 20px;
+    }
+  }
+
+  > .el-dialog__footer {
+    border-top: 1px solid #999999;
+  }
+}

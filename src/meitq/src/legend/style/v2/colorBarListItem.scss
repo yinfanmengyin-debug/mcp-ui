@@ -1,0 +1,38 @@
+.mt-color-bar-list-item {
+  position: relative;
+  padding: 0 10px;
+
+  > .remove-icon-container {
+    position: absolute;
+    top: 5px;
+    left: 0;
+    width: 100%;
+    height: 0;
+
+    > .remove-icon-box {
+      width: 20px;
+      height: 20px;
+      position: sticky;
+      left: calc(100% - 20px);
+      cursor: pointer;
+
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+  }
+
+  &:hover {
+    .remove-icon-box {
+      opacity: 1;
+    }
+  }
+
+  > .mt-color-bar > .title-bar {
+    padding-top: 10px;
+
+    & > span {
+      position: sticky;
+      left: 0;
+    }
+  }
+}

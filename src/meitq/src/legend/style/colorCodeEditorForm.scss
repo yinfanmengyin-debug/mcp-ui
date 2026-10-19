@@ -1,0 +1,70 @@
+.mt-color-code-editor-form {
+  padding-right: 20px;
+
+  &.el-form {
+    .el-select,
+    .el-cascader,
+    .unit-input {
+      width: 130px;
+    }
+  }
+
+  .time-period-select {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 10px;
+
+    .el-select {
+      width: 130px;
+    }
+
+    .period-select {
+      padding: 10px 0;
+      max-height: 240px;
+      overflow: auto;
+
+      .el-date-editor {
+        width: 130px;
+      }
+
+      .period {
+        display: flex;
+        align-items: center;
+        column-gap: 10px;
+        font-size: 18px;
+
+        &:not(:first-child) {
+          margin-top: 10px;
+        }
+
+        .el-icon {
+          cursor: pointer;
+        }
+
+        .el-date-picker {
+          .el-date-picker__header {
+            button,
+            span:nth-child(3) {
+              display: none;
+            }
+          }
+        }
+
+        .second-date-select {
+          display: flex;
+          align-items: center;
+          column-gap: 5px;
+
+          .next-year {
+            font-size: 14px;
+            word-break: keep-all;
+          }
+        }
+      }
+    }
+  }
+
+  .w-150 {
+    width: 150px !important;
+  }
+}

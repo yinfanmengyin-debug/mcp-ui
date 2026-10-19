@@ -8,5 +8,10 @@
     "outDir": "./dist/types",
     "types": []
   },
-  "include": ["src/index.ts", "env.d.ts"]
+  "include": [
+    "src/index.ts",
+    "src/components/index.ts",
+    "src/meitq/libs/js-pageoffice/types/index.d.ts",
+    "env.d.ts"
+  ]
 }

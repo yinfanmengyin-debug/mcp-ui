@@ -1,6 +1,6 @@
 import { mount } from "@vue/test-utils";
 import { describe, expect, it } from "vitest";
-import { DataCard } from "./index";
+import DataCard from "./DataCard.vue";
 
 describe("DataCard", () => {
   it("renders the title, value slot, description, and icon", () => {

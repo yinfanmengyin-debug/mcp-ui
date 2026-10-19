@@ -1,0 +1,38 @@
+.mt-color-bar-list {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  row-gap: 10px;
+
+  > input {
+    color: var(--el-text-color-regular);
+    height: 30px;
+    outline: none;
+    border: 1px solid #ccc;
+    padding-left: 10px;
+  }
+
+  > .stk-table {
+    flex: 1;
+    height: 0;
+
+    --cell-padding-x: 0;
+
+    > .stk-table-main > .stk-tbody-main {
+      .mt-color-bar-list-item {
+        border: 1px solid transparent;
+      }
+      > tr.active > td > .mt-color-bar-list-item {
+        border: 1px solid #008BFF;
+      }
+    }
+
+    > .stk-table-no-data.no-data-full  {
+      border: 1px solid var(--border-color);
+    }
+  }
+}

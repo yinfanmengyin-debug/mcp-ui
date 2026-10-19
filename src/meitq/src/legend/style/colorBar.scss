@@ -1,0 +1,40 @@
+.mt-color-bar {
+  width: fit-content;
+  font-size: 12px;
+
+  .title-bar {
+    width: 100%;
+    height: fit-content;
+    font-size: 14px;
+
+    span:nth-child(2) {
+      float: right;
+    }
+  }
+
+  .color-bar {
+    padding-bottom: 5px;
+
+    & > ul {
+      display: flex;
+      flex-wrap: nowrap;
+      text-align: center;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    ul.colors {
+      border: 0.5px solid #dddddd;
+      margin: 5px 0;
+    }
+
+    ul.less-than-color li {
+      transform: translateX(50%);
+    }
+
+    > .no-levels {
+      color: #cccccc;
+    }
+  }
+}

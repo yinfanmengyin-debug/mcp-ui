@@ -1,0 +1,115 @@
+.mt-page-layout {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+  > .page-content {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    width: 0;
+    height: 100%;
+    background: var(--mt-page-content-bg-color, #FFFFFF);
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    .content-mask{
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--mt-page-content-mask-bg-color, #FFFFFF);
+      z-index: 999;
+    }
+  }
+
+  > .page-panel {
+    $panelWidth: 290px;
+    position: relative;
+    z-index: 2;
+    width: 0;
+    height: 100%;
+    margin-right: -10px;
+    background: var(--mt-page-panel-bg-color, #303a55);
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.25);
+    transition:
+      width 0.3s,
+      margin-right 0.3s;
+
+    &.is-expand {
+      width: $panelWidth;
+      margin-right: 0;
+
+      .fold-toggle-bar > .icon {
+        transform: rotate(0deg);
+      }
+    }
+
+    .fold-toggle-bar {
+      cursor: pointer;
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 10px 8px;
+      background: var(--mt-page-panel-fold-toggle-bg-color, #00C3EA);
+      box-shadow: -2px 0px 4px rgba(0, 0, 0, 0.25);
+      border-radius: 3px 0 0 3px;
+      transform: translateX(-100%);
+
+      > .icon {
+        color: var(--mt-page-panel-fold-toggle-color, #FFFFFF);
+        display: block;
+        font-size: 14px;
+        transition: transform 0.3s;
+        transform: rotate(-180deg);
+      }
+    }
+
+    .panel-container {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+
+      .panel-content-wrapper {
+        width: $panelWidth;
+        height: 0;
+        flex: 1;
+        overflow: auto;
+
+        &::-webkit-scrollbar {
+          display: none!important;
+        }
+
+        .panel-content {
+          width: 100%;
+          padding: 0 15px;
+        }
+
+        .bottom-detection-el {
+          padding-top: 10px;
+        }
+      }
+
+      .panel-header,
+      .panel-footer {
+        padding: 15px;
+        width: $panelWidth;
+        box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+
+        &.no-box-shadow {
+          box-shadow: unset;
+        }
+      }
+
+      .panel-footer {
+        .el-button {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,33 @@
+:root {
+  --theme-base: #fff;
+  --theme-primary: #008bff;
+  --theme-primary-1: #008bff;
+  --theme-primary-opacity: rgb(0 139 255 / 10%);
+  --theme-primary-hover: #2296f7;
+  --theme-primary-border-color: #008bff;
+  --theme-disabled-border-color-1: #f5f5f6;
+  --theme-disabled-border-color-2: #dfe1e6;
+  --theme-text-primary: #424952;
+  --theme-text-secondary: #575d6c;
+  --theme-text-placeholder: #8a8e99;
+  --theme-disabled-bg-color: #f5f5f6;
+  --theme-bg-color: #eff1f5;
+  --theme-divider-color: #dfe1e6;
+  --theme-hover-bg-color: #f2f5fc;
+  --theme-component-color: #e9edfa;
+  --theme-border-color: #adb0b8;
+  --theme-unchoose-bg-color: #dee4ef;
+  --theme-choose-bg-color: #008bff;
+  --theme-status-success-color: #3dcc89;
+  --theme-status-warning-color: #fa9841;
+  --theme-status-error-color: #e11c15;
+  --theme-status-tip-color: #008bff;
+  --theme-status-success-bg-color: #e2f7f2;
+  --theme-status-warning-bg-color: #fff3e8;
+  --theme-status-error-bg-color: #ffeeed;
+  --theme-status-tip-bg-color: #e9edfa;
+  --theme-shadow-color-1: rgb(0 0 0 / 24%);
+  --theme-shadow-color-2: rgb(12 94 163 / 25%);
+  --theme-shadow-color-3: rgb(37 74 105 / 8%);
+  --theme-shadow-color-4: rgb(0 0 0 / 50%);
+}

@@ -1,0 +1,17 @@
+.mt-time-axis {
+  width: 100%;
+  height: auto;
+  position: relative;
+  overflow: hidden;
+  user-select: none;
+
+  &.is-disabled {
+    cursor: not-allowed;
+  }
+
+  &__canvas {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+}

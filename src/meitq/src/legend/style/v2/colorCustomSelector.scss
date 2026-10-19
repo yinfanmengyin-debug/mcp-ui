@@ -1,0 +1,75 @@
+.mt-color-custom-selector {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+
+  > .color-selector {
+    display: flex;
+    align-items: center;
+    column-gap: 5px;
+
+    .el-color-svpanel {
+      width: 200px;
+      height: 222px;
+    }
+
+    .el-color-hue-slider {
+      height: 222px;
+    }
+  }
+
+  > .color-rgb {
+    display: flex;
+    align-items: center;
+    column-gap: 5px;
+
+    .r,
+    .g,
+    .b {
+      display: flex;
+      align-items: center;
+      column-gap: 5px;
+
+
+      .label {
+        font-size: 14px;
+        font-weight: bold;
+      }
+    }
+
+    .el-input-number {
+      width: 100%;
+
+      .el-input__wrapper {
+        padding: 0 5px;
+      }
+    }
+  }
+
+  .current-color-wrapper {
+    display: flex;
+    column-gap: 20px;
+
+    > .current-color {
+      display: flex;
+      align-items: center;
+
+      .color-block {
+        width: 20px;
+        height: 20px;
+        border: 1px solid;
+      }
+
+      .color-value-input {
+        flex: 1;
+        font-size: 12px;
+        line-height: 20px;
+        border-bottom: 1px solid;
+
+        > .el-input__wrapper {
+          box-shadow: none;
+        }
+      }
+    }
+  }
+}

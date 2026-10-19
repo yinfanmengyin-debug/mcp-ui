@@ -1,0 +1,104 @@
+@use '../_shared.scss' as shared;
+
+@include shared.picker-base('mt-year-date-picker', $display: null);
+@include shared.nav-button('mt-year-date-picker');
+@include shared.popover-padding('mt-year-date-picker', $use-deep: false);
+
+.mt-year-date-picker {
+  &__range-reference {
+    .mt-year-date-picker__range-separator {
+      font-size: 14px;
+      color: var(--theme-text-secondary);
+    }
+  }
+
+  &__panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding-bottom: 6px;
+    margin-bottom: 14px;
+    border-bottom: 1px solid var(--theme-border-color);
+  }
+
+  &__panel-title {
+    flex: 1;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--theme-text-primary);
+  }
+
+  &__panel-body {
+    display: grid;
+    gap: 12px;
+  }
+
+  &__year {
+    height: 30px;
+    border: 1px solid var(--theme-border-color);
+    border-radius: 2px;
+    background: var(--theme-base);
+    color: var(--theme-text-primary);
+    cursor: pointer;
+    transition:
+      border-color 0.2s ease,
+      background-color 0.2s ease,
+      color 0.2s ease;
+
+    &:hover:not(:disabled) {
+      border-color: var(--theme-primary);
+      color: var(--theme-primary);
+    }
+
+    &.is-selected {
+      border-color: var(--theme-primary);
+      background: var(--theme-primary);
+      color: var(--theme-base);
+      &:hover {
+        border-color: var(--theme-primary);
+        background: var(--theme-primary);
+        color: var(--theme-base);
+      }
+    }
+
+    &.is-disabled,
+    &:disabled {
+      color: var(--theme-text-placeholder) !important;
+      background: var(--theme-disabled-bg-color) !important;
+      border-color: var(--theme-disabled-bg-color);
+      cursor: not-allowed;
+      &:hover {
+        color: var(--theme-text-placeholder) !important;
+        background: var(--theme-disabled-bg-color) !important;
+        border-color: var(--theme-disabled-bg-color);
+      }
+    }
+  }
+}
+
+.mt-year-date-picker__popover .mt-year-date-picker__panels.is-range {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    border-left: 1px solid var(--theme-border-color);
+    pointer-events: none;
+  }
+}
+
+:deep(.mt-date-picker-footer) {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  column-gap: 10px;
+}

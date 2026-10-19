@@ -1,0 +1,221 @@
+.mt-date-picker {
+  :deep(.mt-check-button) {
+    .el-button {
+      padding: 5px;
+    }
+  }
+
+  .el-form-item__label {
+    white-space: nowrap;
+    padding: 0;
+    font-size: 14px;
+  }
+
+  .el-form-item {
+    margin-bottom: 8px;
+  }
+
+  @mixin item__content($w2) {
+    .el-form-item {
+      display: flex;
+      align-items: center;
+    }
+    .el-form-item__content {
+      width: auto;
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      column-gap: 5px;
+      > .el-input {
+        width: auto;
+      }
+
+      > .el-select {
+        min-width: $w2;
+      }
+    }
+  }
+
+  .mt-continuous-period-hou-picker {
+    @include item__content(80px);
+  }
+
+  .mt-continuous-period-xun-picker {
+    @include item__content(80px);
+  }
+
+  .mt-continuous-period-season-picker {
+    @include item__content(80px);
+  }
+
+  .mt-continuous-period-month-picker, .mt-continuous-period-hour-picker, .mt-continuous-period-day-picker,
+  .mt-continuous-period-year-picker {
+    .el-form-item {
+      display: flex;
+      align-items: center;
+    }
+    .el-date-editor {
+      width: 100%;
+    }
+  }
+
+  .mt-same-period-day-picker, .mt-same-period-hou-picker, .mt-same-period-month-picker,
+  .mt-same-period-xun-picker, .mt-same-period-season-picker {
+    .el-date-editor {
+      --el-date-editor-width: auto;
+    }
+
+    .el-form-item {
+      display: flex;
+      align-items: center;
+      > .el-form-item__content {
+        width: 100%;
+        display: flex;
+        column-gap: 10px;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+  }
+
+  .mt-same-period-hour-picker {
+    .el-form-item {
+      display: flex;
+      align-items: center;
+    }
+    .el-date-editor {
+      --el-date-editor-width: auto;
+
+      &.small-font {
+        .el-input__inner {
+          font-size: 11px;
+        }
+      }
+    }
+
+    .el-form-item {
+      > .el-form-item__content {
+        width: 100%;
+        display: flex;
+        column-gap: 10px;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+  }
+
+  .timescale {
+    margin-top: 3px;
+  }
+  .shortcut-key {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin: 5px 0;
+
+    .shortcut-item {
+      border-radius: 2px;
+      font-size: 14px;
+      border: 1px solid rgba(217, 217, 217, 1);
+      height: 24px;
+      text-align: center;
+      color: rgba(0, 0, 0, 0.65);
+      line-height: 24px;
+      cursor: pointer;
+      user-select: none;
+
+      &.active {
+        background: var(--el-color-primary);
+        color: #ffffff;
+      }
+    }
+    .fold-label {
+      user-select: none;
+      display: flex;
+      align-items: center;
+      height: 100%;
+      justify-content: flex-end;
+      box-sizing: border-box;
+      padding-right: 8px;
+      color: rgba(22, 140, 255, 1);
+      cursor: pointer;
+      div {
+        font-size: 12px;
+        margin: 2px 4px 0 0;
+        white-space: nowrap;
+      }
+      .fold-icon {
+        transition: transform 0.3s;
+        transform: rotate(90deg);
+
+        &.fold {
+          transform: rotate(-90deg);
+        }
+      }
+    }
+  }
+}
+
+.mt-continuous-period-year-picker {
+  .el-form-item__content {
+    flex-wrap: nowrap !important;
+    gap: 10px;
+
+  }
+}
+
+
+.show-hours-only {
+  .el-time-panel > .el-time-panel__content {
+    .el-time-spinner > .el-scrollbar.el-time-spinner__wrapper {
+      &:first-child {
+        width: 100%;
+      }
+
+      &:not(:first-child) {
+        display: none;
+      }
+    }
+  }
+}
+
+.show-months-only .el-date-picker__header {
+  height: 0;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+.show-month-select-only {
+  .el-date-picker__header {
+    margin-bottom: 0;
+
+    .el-date-picker__prev-btn,
+    .el-date-picker__next-btn,
+    .el-date-picker__header-label:nth-child(2) {
+      display: none;
+    }
+
+    &.el-date-picker__header--bordered {
+      height: 0;
+      overflow: hidden;
+      padding: 0;
+      margin: 0;
+      border: none;
+    }
+  }
+
+  .el-picker-panel__content {
+    margin-top: 0;
+  }
+}
+
+.date-picker-tooltip-popper {
+  .popper-item {
+    width: 160px;
+  }
+}

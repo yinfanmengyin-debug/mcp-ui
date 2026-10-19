@@ -1,0 +1,311 @@
+@use '../_shared.scss' as shared;
+
+@include shared.picker-base(
+  'mt-date-picker',
+  $range-separator-margin: 0 2px
+);
+@include shared.range-panels('mt-date-picker');
+@include shared.nav-button('mt-date-picker');
+@include shared.popover-padding('mt-date-picker');
+
+.mt-date-picker {
+
+  &__panel-header {
+    display: grid;
+    grid-template-columns: auto auto 1fr auto auto;
+    align-items: center;
+    gap: 6px;
+    padding-bottom: 6px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid var(--theme-border-color);
+
+    &.is-month-only {
+      grid-template-columns: auto 1fr auto;
+    }
+  }
+
+  &__panel-title {
+    flex: 1;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--theme-text-primary);
+  }
+
+  &__panel-title-actions {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    min-width: 0;
+
+    .mt-date-picker__panel-header.is-month-only & {
+      justify-self: center;
+    }
+  }
+
+  &__panel-title-btn {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--theme-text-primary);
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: var(--theme-primary);
+    }
+  }
+
+  &__panel-title-separator {
+    color: var(--theme-text-secondary);
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  &__weekdays,
+  &__calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 22px);
+    justify-content: space-between;
+  }
+
+  &__weekdays {
+    margin-bottom: 8px;
+  }
+
+  &__weekday {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    color: var(--theme-text-secondary);
+    font-size: 12px;
+  }
+
+  &__calendar {
+    row-gap: 6px;
+  }
+
+  &__date {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    padding: 0;
+    border: none;
+    border-radius: 2px;
+    background: transparent;
+    color: var(--theme-text-primary);
+    font-size: 12px;
+    cursor: pointer;
+    transition:
+      background-color 0.2s ease,
+      color 0.2s ease;
+
+    &:hover:not(:disabled) {
+      color: var(--theme-primary);
+    }
+
+    &.is-selected {
+      background: var(--theme-primary);
+      color: var(--theme-base);
+
+      &:hover {
+        background: var(--theme-primary);
+        color: var(--theme-base);
+      }
+    }
+
+    &.is-outside {
+      color: var(--theme-text-placeholder);
+    }
+
+    &.is-selected.is-outside {
+      background: var(--theme-primary);
+      color: var(--theme-base);
+
+      &:hover {
+        background: var(--theme-primary);
+        color: var(--theme-base);
+      }
+    }
+
+    &.is-today:not(.is-selected) {
+      box-shadow: 0 0 0 1px var(--theme-primary) inset;
+      color: var(--theme-primary);
+    }
+
+    &:disabled,
+    &.is-disabled {
+      color: var(--theme-text-placeholder);
+      cursor: not-allowed;
+    }
+
+    &.is-placeholder {
+      cursor: default;
+      pointer-events: none;
+      background: transparent;
+      box-shadow: none;
+    }
+  }
+
+  &__year-panel-body,
+  &__month-panel-body {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  &__year-btn,
+  &__month-btn {
+    height: 32px;
+    border: none;
+    border-radius: 2px;
+    background: transparent;
+    color: var(--theme-text-primary);
+    cursor: pointer;
+    transition:
+      background-color 0.2s ease,
+      color 0.2s ease;
+
+    &:hover {
+      color: var(--theme-primary);
+    }
+
+    &.is-selected {
+      background: var(--theme-primary);
+      color: var(--theme-base);
+
+      &:hover {
+        background: var(--theme-primary);
+        color: var(--theme-base);
+      }
+    }
+  }
+
+  &__time-section {
+    padding-top: 10px;
+  }
+
+  &__time-picker {
+    width: 100%;
+
+    &.is-disabled {
+      opacity: 0.6;
+    }
+  }
+
+  &__time-columns {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+
+    &.is-single-column {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+
+  &__time-column {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    max-height: 168px;
+    padding: 4px;
+    overflow-y: auto;
+    border: 1px solid var(--theme-border-color);
+    border-radius: 4px;
+    background: var(--theme-base);
+    box-sizing: border-box;
+    scrollbar-width: thin;
+  }
+
+  &__time-option {
+    height: 28px;
+    padding: 0 8px;
+    border: none;
+    border-radius: 2px;
+    background: transparent;
+    color: var(--theme-text-primary);
+    cursor: pointer;
+    transition:
+      background-color 0.2s ease,
+      color 0.2s ease;
+
+    &:hover:not(:disabled) {
+      color: var(--theme-primary);
+      background: var(--theme-primary-1);
+    }
+
+    &.is-selected {
+      background: var(--theme-primary);
+      color: var(--theme-base);
+
+      &:hover {
+        background: var(--theme-primary);
+        color: var(--theme-base);
+      }
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      color: var(--theme-text-placeholder);
+    }
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    padding-top: 12px;
+  }
+
+  &__footer-btn {
+    min-width: 56px;
+    height: 28px;
+    padding: 0 12px;
+    border: 1px solid var(--theme-border-color);
+    border-radius: 4px;
+    background: var(--theme-base);
+    color: var(--theme-text-primary);
+    cursor: pointer;
+    transition:
+      border-color 0.2s ease,
+      background-color 0.2s ease,
+      color 0.2s ease;
+
+    &:hover:not(:disabled) {
+      border-color: var(--theme-primary);
+      color: var(--theme-primary);
+    }
+
+    &.is-primary {
+      border-color: var(--theme-primary);
+      background: var(--theme-primary);
+      color: var(--theme-base);
+      &:hover {
+        background: var(--theme-primary);
+        color: var(--theme-base);
+      }
+    }
+
+    &.is-primary:hover:not(:disabled) {
+      opacity: 0.92;
+    }
+
+    &:disabled {
+      border-color: var(--theme-disabled-border-color-2);
+      background: var(--theme-disabled-bg-color);
+      color: var(--theme-text-placeholder);
+      cursor: not-allowed;
+    }
+  }
+}
+
+:deep(.mt-date-picker__time-picker .el-input__wrapper) {
+  box-sizing: border-box;
+}

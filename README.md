@@ -1,24 +1,44 @@
 # mcp-ui
 
-这是一个气象行业常用的 UI 组件，使用 Vue 3、Vite 和 TypeScript 构建。
+一个使用 Vue 3、Vite 和 TypeScript 构建的气象行业 UI 组件库，包含数据展示卡片、项目气象组件，以及已整合进本仓库源码的 `@meitq/ui` 组件。使用者无需再安装内网的 `@meitq/ui` 包。
+
+## 安装
+
+```sh
+npm install mcp-ui vue vue-router element-plus @element-plus/icons-vue dayjs zrender @handsontable/vue3 @texel/color @vueuse/core echarts file-saver handsontable lodash-es stk-table-vue xlsx
+```
+
+在应用入口加载样式并注册组件。Element Plus 由宿主应用注册，以便其全局标签可用：
+
+```ts
+import { createApp } from "vue";
+import ElementPlus from "element-plus";
+import McpUI from "mcp-ui";
+import "mcp-ui/style.css";
+
+createApp(App)
+  .use(ElementPlus)
+  .use(McpUI, {
+    areaSelector: {
+      areaList: [],
+    },
+  })
+  .mount("#app");
+```
+
+全局插件注册项目组件和已集成的 `@meitq/ui` 组件。前一组包括 `AreaSelector`、`Collapse`、`ContentTab`、`DashHeader`、`DataForm`、`MtDate`、`MtHou`、`MtMonth`、`MtSeason`、`MtXun`、`MtYear`、`Empty`、`PageLayout`、`PanelItem`、`PublicDialog`、`RadioList`、`StatisticalPeriod`、`SubAreaCascader` 和 `TimeAxis`；`@meitq/ui` 组件使用 `Mt` 前缀，包括 `MtAreaSelector`、`MtChart`、`MtCheckbox`、`MtCheckButton`、`MtConfigProvider`、`MtDatePicker`、`MtEmpty`、`MtFormBlock`、`MtFormItem`、`MtLegend`、`MtListView`、`MtPageLayout`、`MtPageOffice`、`MtRadio`、`MtSelection`、`MtTable`、`MtTimeAxis`、`MtAddOrEditColorBar` 和 `MtAddOrEditColorCode`。组件也可以按需具名导入；`DataCard` 亦可具名导入。
+
+`areaSelector` 插件选项包含 `areaList`、字段映射、分类布局和区域变化回调，参见 `AreaSelectorOptions` 类型。`@meitq/ui` 的设置选项可通过 `MtConfigProvider` 提供。运行自定义旬、候和季节日期逻辑时，组件包会为 Day.js 注册相应扩展。`@meitq/ui` 源码和内部工具已随本项目发布，不再需要配置内网 registry 或安装 `@meitq/ui`。
 
 ## 数据展示卡片
-
-轻量、可复用的 Vue 3 数据卡片，适合展示气象仪表盘中的温度、湿度、风速、降水量等指标。支持具名插槽、辅助说明、装饰图标和趋势提示；趋势方向由调用方明确指定，避免错误推断气象变化的好坏。
-
-### 使用
 
 ```vue
 <script setup lang="ts">
 import { DataCard } from "mcp-ui";
-import "mcp-ui/style.css";
 </script>
 
 <template>
-  <DataCard
-    title="相对湿度"
-    :trend="{ direction: 'up', value: '5%' }"
-  >
+  <DataCard title="相对湿度" :trend="{ direction: 'up', value: '5%' }">
     68<span>%</span>
     <template #description>较昨日同期</template>
     <template #icon>◌</template>
@@ -26,20 +46,9 @@ import "mcp-ui/style.css";
 </template>
 ```
 
-Vue 3 为 peer dependency。卡片主值通过默认插槽传入，说明和图标分别通过 `description`、`icon` 具名插槽传入。可以通过 `class` 和 `--data-card-*` CSS 自定义属性调整外观。
+卡片的标题通过 `title` 传入，主值使用默认插槽，说明和图标分别使用 `description`、`icon` 具名插槽。趋势方向必须显式传入，支持 `up`、`down`、`neutral`。
 
-### 属性与插槽
-
-| 名称 | 类型 | 必填 | 说明 |
-| --- | --- | --- | --- |
-| `title` | `string` | 是 | 卡片标题，同时作为无障碍名称。 |
-| 默认插槽 | `VNode` | 是 | 主要数据，可传入文本、格式化数值或其他 Vue 内容。 |
-| `description` 插槽 | `VNode` | 否 | 数据的补充说明。 |
-| `trend` | `{ direction: "up" \| "down" \| "neutral"; value: string \| number }` | 否 | 趋势方向与变化值；方向由调用方提供。 |
-| `icon` 插槽 | `VNode` | 否 | 标题旁的装饰内容。 |
-| `class` | `string` | 否 | 用于自定义布局和样式的额外 class。 |
-
-### 本地开发
+## 本地开发
 
 ```sh
 npm install
@@ -48,4 +57,4 @@ npm test
 npm run build
 ```
 
-示例页包含温度、相对湿度、风速和降水量卡片。生产构建会在 `dist/` 输出 JavaScript、CSS 和 TypeScript 类型声明。
+生产构建会在 `dist/` 输出 JavaScript、CSS 和 TypeScript 类型声明。

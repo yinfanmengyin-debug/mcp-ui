@@ -1,0 +1,109 @@
+.mt-chart {
+  --mt-icon-size: 18px;
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+
+  background: inherit;
+
+  &, & * {
+    box-sizing: border-box;
+  }
+
+  .mt-chart-title-container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+    align-items: center;
+
+    .mt-chart-title {
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .mt-chart-subtitle {
+      font-size: 14px;
+    }
+  }
+
+  .mt-chart-form {
+    &.el-form--inline {
+      .el-form-item {
+        & > .el-input, .el-cascader, .el-select, .el-date-editor, .el-autocomplete {
+          width: 150px;
+        }
+      }
+    }
+  }
+
+  .mt-chart__container {
+    flex: 1;
+    width: 100%;
+    height: 0;
+    //border: 1px solid;
+    position: relative;
+
+    > ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      display: flex;
+      align-items: center;
+      column-gap: 10px;
+
+      position: absolute;
+      right: 0;
+      z-index: 1;
+
+      > li {
+        cursor: pointer;
+
+        &.active {
+          color: var(--mt-icon-active-color, #00C3EA);
+        }
+
+        svg, i, div {
+          cursor: pointer;
+          user-select: none;
+        }
+
+        > svg {
+          width: var(--mt-icon-size);
+          height: var(--mt-icon-size);
+        }
+      }
+    }
+
+    .mt-chart-el {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.mt-chart-series-sort-setting {
+  > .el-radio-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    > .el-radio {
+      margin: 0;
+
+      > .el-radio__label {
+        max-width: 500px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+
+  > .button-group {
+    margin-top: 5px;
+    text-align: center;
+  }
+}

@@ -1,0 +1,60 @@
+.mt-check-button {
+  width: 100%;
+  overflow: hidden;
+
+  // 确定获取clientLeft的值时的相对容器
+  position: relative;
+  transition: height 0.3s;
+
+  .fold-button-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .fold-button {
+      color: var(--el-color-primary);
+
+      display: flex;
+      align-items: center;
+      column-gap: 3px;
+
+      cursor: pointer;
+      user-select: none;
+
+      .fold-icon {
+        transition: transform 0.3s;
+        transform: rotate(90deg);
+
+        &.fold {
+          transform: rotate(-90deg);
+        }
+      }
+    }
+  }
+
+  > .el-button {
+    overflow: hidden;
+    margin: 0;
+    transition: all 0.3s;
+
+    &+.el-button {
+      margin: 0;
+    }
+
+    &:not(.el-button--primary) {
+      //color: #333333;
+      background-color: transparent;
+
+      &:hover {
+        color: var(--el-color-primary);
+        border-color: var(--el-color-primary);
+      }
+    }
+
+    > span {
+      display: block;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}
