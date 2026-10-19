@@ -1,8 +1,8 @@
-import react from "@vitejs/plugin-react";
+import vue from "@vitejs/plugin-vue";
 import { defineConfig } from "vitest/config";
 
 export default defineConfig({
-  plugins: [react()],
+  plugins: [vue()],
   build: {
     lib: {
       entry: "src/index.ts",
@@ -11,17 +11,15 @@ export default defineConfig({
       formats: ["es", "umd"],
     },
     rollupOptions: {
-      external: ["react", "react-dom"],
+      external: ["vue"],
       output: {
         globals: {
-          react: "React",
-          "react-dom": "ReactDOM",
+          vue: "Vue",
         },
       },
     },
   },
   test: {
     environment: "jsdom",
-    setupFiles: ["./src/test-setup.ts"],
   },
 });

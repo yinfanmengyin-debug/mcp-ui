@@ -1,7 +1,7 @@
 {
   "name": "mcp-ui",
   "version": "0.1.0",
-  "description": "Lightweight React UI components for weather data dashboards.",
+  "description": "Lightweight Vue 3 UI components for weather data dashboards.",
   "license": "MIT",
   "type": "module",
   "files": [
@@ -20,24 +20,20 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "vite build && tsc --emitDeclarationOnly --noEmit false --declaration --outDir dist/types",
+    "build": "vue-tsc --noEmit && vite build && vue-tsc -p tsconfig.build.json",
     "test": "vitest run"
   },
   "peerDependencies": {
-    "react": "^18.0.0 || ^19.0.0",
-    "react-dom": "^18.0.0 || ^19.0.0"
+    "vue": "^3.3.0"
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "^6.6.3",
-    "@testing-library/react": "^16.1.0",
-    "@types/react": "^19.0.8",
-    "@types/react-dom": "^19.0.3",
-    "@vitejs/plugin-react": "^4.3.4",
+    "@vitejs/plugin-vue": "^5.2.1",
     "jsdom": "^25.0.1",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
     "typescript": "^5.7.3",
     "vite": "^5.4.21",
-    "vitest": "^2.1.8"
+    "vitest": "^2.1.8",
+    "vue": "^3.5.13",
+    "@vue/test-utils": "^2.4.6",
+    "vue-tsc": "^2.2.0"
   }
 }

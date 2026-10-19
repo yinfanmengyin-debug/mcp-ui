@@ -1,4 +1,2 @@
-import "./DataCard.css";
-
-export { DataCard } from "./DataCard";
-export type { DataCardProps, DataCardTrend, TrendDirection } from "./DataCard";
+export { default as DataCard } from "./DataCard.vue";
+export type { DataCardTrend, TrendDirection } from "./types";
