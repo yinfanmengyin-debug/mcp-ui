@@ -1,0 +1,110 @@
+:root {
+  --data-card-background: #ffffff;
+  --data-card-border: #e5e9f0;
+  --data-card-text: #182230;
+  --data-card-muted: #667085;
+  --data-card-accent: #5145cd;
+  --data-card-positive: #087443;
+  --data-card-negative: #b42318;
+  --data-card-neutral: #667085;
+}
+
+.data-card {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-width: 0;
+  padding: 1.25rem;
+  color: var(--data-card-text);
+  background: var(--data-card-background);
+  border: 1px solid var(--data-card-border);
+  border-radius: 1rem;
+  box-shadow: 0 1px 2px rgb(16 24 40 / 5%);
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+}
+
+.data-card__header,
+.data-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.data-card__title {
+  margin: 0;
+  color: var(--data-card-muted);
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.data-card__icon {
+  display: grid;
+  flex: 0 0 2.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  place-items: center;
+  color: var(--data-card-accent);
+  background: color-mix(in srgb, var(--data-card-accent) 10%, white);
+  border-radius: 0.75rem;
+  font-size: 1.125rem;
+}
+
+.data-card__value {
+  overflow-wrap: anywhere;
+  font-size: clamp(1.75rem, 8vw, 2.25rem);
+  font-variant-numeric: tabular-nums;
+  font-weight: 650;
+  letter-spacing: -0.045em;
+  line-height: 1.1;
+}
+
+.data-card__footer {
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+.data-card__description {
+  color: var(--data-card-muted);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+}
+
+.data-card__trend {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.data-card__trend--up {
+  color: var(--data-card-positive);
+}
+
+.data-card__trend--down {
+  color: var(--data-card-negative);
+}
+
+.data-card__trend--neutral {
+  color: var(--data-card-neutral);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .data-card {
+    transition:
+      box-shadow 160ms ease,
+      transform 160ms ease;
+  }
+
+  .data-card:hover {
+    box-shadow: 0 8px 24px rgb(16 24 40 / 8%);
+    transform: translateY(-2px);
+  }
+}

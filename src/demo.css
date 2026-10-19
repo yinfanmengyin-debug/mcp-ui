@@ -1,0 +1,62 @@
+:root {
+  color: #182230;
+  background: #f5f7fb;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.demo {
+  width: min(100% - 2.5rem, 72rem);
+  margin: 0 auto;
+  padding: clamp(3rem, 8vw, 6rem) 0;
+}
+
+.demo__header {
+  max-width: 38rem;
+  margin-bottom: 2.25rem;
+}
+
+.demo__eyebrow {
+  margin: 0 0 0.75rem;
+  color: #5145cd;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.demo h1 {
+  margin: 0;
+  font-size: clamp(2rem, 5vw, 3rem);
+  letter-spacing: -0.05em;
+}
+
+.demo__header > p:last-child {
+  margin: 0.75rem 0 0;
+  color: #667085;
+  line-height: 1.6;
+}
+
+.demo__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  gap: 1rem;
+}
+
+.demo__unit {
+  color: #667085;
+  font-size: 0.5em;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}

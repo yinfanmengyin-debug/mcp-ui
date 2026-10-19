@@ -1,0 +1,43 @@
+{
+  "name": "mcp-ui",
+  "version": "0.1.0",
+  "description": "Lightweight React UI components for weather data dashboards.",
+  "license": "MIT",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/mcp-ui.umd.cjs",
+  "module": "./dist/mcp-ui.js",
+  "types": "./dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/mcp-ui.js",
+      "require": "./dist/mcp-ui.umd.cjs"
+    },
+    "./style.css": "./dist/style.css"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && tsc --emitDeclarationOnly --noEmit false --declaration --outDir dist/types",
+    "test": "vitest run"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0 || ^19.0.0",
+    "react-dom": "^18.0.0 || ^19.0.0"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.1.0",
+    "@types/react": "^19.0.8",
+    "@types/react-dom": "^19.0.3",
+    "@vitejs/plugin-react": "^4.3.4",
+    "jsdom": "^25.0.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "typescript": "^5.7.3",
+    "vite": "^5.4.21",
+    "vitest": "^2.1.8"
+  }
+}
