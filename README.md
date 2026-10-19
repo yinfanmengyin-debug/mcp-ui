@@ -5,8 +5,10 @@
 ## 安装
 
 ```sh
-npm install mcp-ui vue vue-router element-plus @element-plus/icons-vue dayjs zrender @handsontable/vue3 @texel/color @vueuse/core echarts file-saver handsontable lodash-es stk-table-vue xlsx
+npm install github:yinfanmengyin-debug/mcp-ui#main
 ```
+
+当前组件库通过 GitHub 安装，尚未发布到 npm。`prepare` 会在安装时自动构建组件库；npm 7 及以上版本会根据包声明安装所需的 peer dependencies。
 
 在应用入口加载样式并注册组件。Element Plus 由宿主应用注册，以便其全局标签可用：
 

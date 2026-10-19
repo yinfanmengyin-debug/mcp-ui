@@ -21,7 +21,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build && vue-tsc -p tsconfig.build.json",
-    "test": "vitest run"
+    "test": "vitest run",
+    "prepare": "npm run build"
   },
   "peerDependencies": {
     "@handsontable/vue3": "^14.5.0",
